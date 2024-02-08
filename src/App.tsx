@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-
+      <h1>Test of font styles</h1>
     </>
   )
 }
