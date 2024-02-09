@@ -1,0 +1,16 @@
+.card-container {
+  background-color: #efefd0;
+  border-radius: 50px;
+
+  .card {
+    color: #1a659e;
+    display: flex;
+    flex-direction: column;
+    height: 538px; 
+
+    .card-header {
+      font-size: 1.25rem;
+    }
+  }
+  
+}
