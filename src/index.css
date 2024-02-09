@@ -6,3 +6,7 @@ body{
    height: 100vh;
    background: linear-gradient(360deg, #9d4edd, #9350db, #7955d3, #5757c5, #3456b3, #16539f, #03508f, #004e89);
 }
+
+* {
+  font-family: 'Inter', sans-serif;
+}

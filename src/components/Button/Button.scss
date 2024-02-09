@@ -1,0 +1,50 @@
+.button-container {
+  padding-top: 16px;
+
+  &.default {
+    .button-styles {
+      height: 63px;
+      font-size: 0.9rem;
+      width: 166px;
+    }
+  }
+
+  &.large-font-style {
+    .button-styles {
+      font-size: 1.3rem;
+      height: 71px;
+      width: 223px;
+    }
+  }
+
+  &.large-button {
+    .button-styles {
+      height: 71px;
+      width: 223px;
+    }
+  }
+
+  &.small-button {
+    .button-styles {
+      width: 87px;
+      height: 31px;
+      font-size: 0.7rem;
+    }
+  }
+
+  &.medium-button {
+    .button-styles {
+      width: 166px;
+      height: 40px;
+      font-size: 1.3rem;
+    }
+  }
+
+  .button-styles {
+    background-color: #ff6b35;
+    border-radius: 30px;
+    color: #1a659e;
+    height: 63px;
+    font-size: 0.9rem;
+  }
+}
