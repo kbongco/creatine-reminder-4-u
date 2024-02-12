@@ -2,12 +2,11 @@ import './Card.scss';
 import CardProps from '../../interfaces/component-interface';
 
 
-export default function Card({header, body, footer}: CardProps) {
+export default function Card({ header, body, footer, size }: CardProps) {
   return (<>
-    <div className='card-container'>
+    <div className={`card-container ${size}`}>
       <div className='card'>
         <div className='card-header'>
-          {/* change this into header text */}
           <p>{header}</p>
         </div>
         <div className='card-content'>

@@ -13,7 +13,8 @@ function App() {
       <h1>Test of font styles</h1>
       <div>
         <div>
-        <Card />
+          <Card size='default'/>
+          {/* <Card size='small-wide'/> */}
         </div>
         </div>
     </>
