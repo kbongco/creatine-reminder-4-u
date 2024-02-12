@@ -6,7 +6,7 @@ export default interface ButtonProps {
 
 export default interface CardProps {
   header?: string;
-  body?: string;
+  body?: any;
   footer?: string;
   size?: string;
 }

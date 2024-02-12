@@ -1,0 +1,12 @@
+.welcome-screen {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+  
+  svg {
+    height: 223px;
+    color: white;
+  }
+}
