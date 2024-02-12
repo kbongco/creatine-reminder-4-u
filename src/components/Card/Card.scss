@@ -28,7 +28,12 @@
     border-radius: 20px;
 
     .card {
-      height: 430px;
+      height: 130px;
+      padding-top: 8px;
+
+      .card-header {
+        font-size: 1rem;
+      }
     }
   }
 }
