@@ -1,0 +1,39 @@
+.card-container {
+  background-color: #efefd0;
+  border-radius: 50px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: #1A659E;
+
+  &.default {
+    height: 430px;
+
+    .card {
+      height: 380px;
+    }
+
+    .header-text {
+      font-size: 1.5rem;
+    }
+
+    .card-content {
+      height: 150px;
+      display: flex;
+    }
+  }
+
+  &.small-wide {
+    width: 365px;
+    height: 124px;
+    border-radius: 20px;
+
+    .card {
+      height: 130px;
+      padding-top: 8px;
+
+      .card-header {
+        font-size: 1rem;
+      }
+    }
+  }
+}
