@@ -3,7 +3,7 @@ body{
   /* background: linear-gradient(0deg, rgba(106,73,207,0.989233193277311) 37%, rgba(0,78,137,1) 71%, rgba(26,101,158,1) 97%);
    */
    /* background: linear-gradient(to bottom, rgba(106,73,207,0.989233193277311) 37%, rgba(0,78,137,1) 71%, rgba(26,101,158,1) 97%); */
-   /* height: 100vh; */
+   height: 100vh;
    background: linear-gradient(360deg, #9d4edd, #9350db, #7955d3, #5757c5, #3456b3, #16539f, #03508f, #004e89);
 }
 
