@@ -10,8 +10,8 @@ export default function Welcome() {
   }
 
   const cardBody = (
-    <div>
-      <p>Never forget to take your creatine again</p>
+    <div className='card-text-welcome-container'>
+      <p className='card-text-welcome'>Never forget to take your creatine again</p>
       <div className='cardBody-login-button'>
         <Button
           onClick={goToLoginPage}
