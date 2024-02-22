@@ -6,12 +6,25 @@ import './Signup.scss';
 import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signupTitle = 'Create an Account'
+
+  const nameOnChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const emailOnChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const passwardOnChange = (e) => {
+    setPassword(e.target.value);
+  }
   const signupCardBoy = (
     <div className='signup-card-body-container'>
       <div className='sign-up-form-inputs'>
@@ -19,12 +32,14 @@ export default function Signup() {
           inputStyle="large-and-wide"
           placeholder="Name"
           icon={<FontAwesomeIcon icon={faUser} />}
+          onChange={nameOnChange}
           />
           <div className='sign-up-middle-input-container'>
         <Input
           inputStyle="large-and-wide"
           placeholder="Email"
-          icon={<FontAwesomeIcon icon={faEnvelope} />}
+            icon={<FontAwesomeIcon icon={faEnvelope} />}
+            onChange={emailOnChange}
           />
                     </div>
         <Input
@@ -32,6 +47,7 @@ export default function Signup() {
           icon={<FontAwesomeIcon icon={faLock} />}
           placeholder="Password"
           type='password'
+          onChange={passwardOnChange}
         />
       </div>
       <div className='signup-button-container'>
@@ -46,7 +62,9 @@ export default function Signup() {
   const signupFooter = (
     <div className='signup-card-footer'>
       <p>Already have an account? </p>
-      <p>Login here!</p>
+      <Link className='login-links' to='/login'>
+        Login Here
+      </Link>
     </div>
   )
 

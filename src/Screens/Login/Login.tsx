@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import GoogleButton from 'react-google-button'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const loginHeader = 'Login to your Account';
@@ -57,7 +58,9 @@ export default function Login() {
       />
       </div>
       <p className='footer-no-account'>Don't have an account? </p>
-      <p className='footer-no-account sign-up'>Sign up here</p>
+      <Link className='no-account-signup'>
+        <p className='footer-no-account sign-up'>Sign up here</p>
+      </Link>
     </div>
   )
   return (
