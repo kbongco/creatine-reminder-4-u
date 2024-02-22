@@ -6,22 +6,37 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import GoogleButton from 'react-google-button'
+import { useState } from "react";
 
 export default function Login() {
   const loginHeader = 'Login to your Account';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const emailOnChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const passWordOnChange = (e) => {
+    setPassword(e.target.value);
+  }
+
   const cardBody = (
     <div className='cardbody-login-container'>
       <div className='cardbody-login-input-container'>
         <div className='cardbody-email-container'>
           <Input
             inputStyle="large-and-wide"
-            icon={<FontAwesomeIcon icon={faEnvelope} />} />
+            icon={<FontAwesomeIcon icon={faEnvelope} />}
+            onChange={emailOnChange}
+          />
         </div>
         <div className='cardbody-password-container'>
           <Input
             inputStyle='large-and-wide'
             icon={<FontAwesomeIcon icon={faLock} />}
             type='password'
+            onChange={passWordOnChange}
           />
         </div>
         <div className='cardbody-signin-button-container'>
