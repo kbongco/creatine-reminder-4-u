@@ -17,4 +17,5 @@ export default interface InputProps {
   type?: string;
   placeholder?: string;
   inputStyle: string;
+  onChange: any;
 }

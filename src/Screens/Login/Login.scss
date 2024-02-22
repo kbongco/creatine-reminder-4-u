@@ -1,0 +1,51 @@
+.login-card-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .cardbody-login-container {
+    margin-top: 24px;
+
+    .cardbody-login-input-container {
+      .cardbody-email-container,
+      .cardbody-password-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .cardbody-password-container {
+        margin-top: 24px;
+      }
+
+      .cardbody-signin-button-container {
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .signin-forgot-pw {
+      text-align: center;
+    }
+  }
+
+  .cardfooter-loginfooter-container {
+    .cardfooter-google-button {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-no-account {
+      text-align: center;
+      font-size: 0.9rem;
+
+      .sign-up {
+        margin-top: 0;
+      }
+    }
+  }
+}
