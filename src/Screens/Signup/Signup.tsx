@@ -1,0 +1,65 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Card from "../../components/Card/Card";
+import Input from "../../components/Input/Input";
+import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import './Signup.scss';
+import Button from "../../components/Button/Button";
+import { ButtonSizes } from "../../enums/component-enums";
+import { useState } from "react";
+
+export default function Signup() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const signupTitle = 'Create an Account'
+  const signupCardBoy = (
+    <div className='signup-card-body-container'>
+      <div className='sign-up-form-inputs'>
+        <Input
+          inputStyle="large-and-wide"
+          placeholder="Name"
+          icon={<FontAwesomeIcon icon={faUser} />}
+          />
+          <div className='sign-up-middle-input-container'>
+        <Input
+          inputStyle="large-and-wide"
+          placeholder="Email"
+          icon={<FontAwesomeIcon icon={faEnvelope} />}
+          />
+                    </div>
+        <Input
+          inputStyle='large-and-wide'
+          icon={<FontAwesomeIcon icon={faLock} />}
+          placeholder="Password"
+          type='password'
+        />
+      </div>
+      <div className='signup-button-container'>
+      <Button
+            label='Sign in'
+            size={ButtonSizes.Default}
+          />
+      </div>
+    </div>
+  )
+
+  const signupFooter = (
+    <div className='signup-card-footer'>
+      <p>Already have an account? </p>
+      <p>Login here!</p>
+    </div>
+  )
+
+  return (
+    <>
+      <div className='signup-page-container'>
+        <Card
+          header={signupTitle}
+          body={signupCardBoy}
+          footer={signupFooter}
+          size='large-card'
+        />
+      </div>
+    </>
+  )
+}

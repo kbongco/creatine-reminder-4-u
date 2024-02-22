@@ -16,7 +16,7 @@ export default function Card({ header, body, footer, size }: CardProps) {
           <p>{footer}</p>
         </div>
       </div>
-      '</div>
+    </div>
   </>
   )
 }
