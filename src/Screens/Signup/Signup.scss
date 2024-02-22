@@ -1,0 +1,33 @@
+.signup-page-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .signup-card-body-container {
+    .sign-up-form-inputs {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .sign-up-middle-input-container {
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .signup-button-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .signup-card-footer {
+    text-align: center;
+
+    .login-links {
+      text-decoration: none;
+    }
+  }
+}

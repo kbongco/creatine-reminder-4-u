@@ -6,7 +6,7 @@
   align-items: center;
 
   .cardbody-login-container {
-    margin-top: 24px;
+    margin-top: 8px;
 
     .cardbody-login-input-container {
       .cardbody-email-container,
@@ -46,6 +46,10 @@
       .sign-up {
         margin-top: 0;
       }
+    }
+
+    .no-account-signup {
+      text-decoration:none;
     }
   }
 }
