@@ -7,6 +7,8 @@ import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -25,6 +27,15 @@ export default function Signup() {
   const passwardOnChange = (e) => {
     setPassword(e.target.value);
   }
+
+  const signUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      console.log('this works');
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const signupCardBoy = (
     <div className='signup-card-body-container'>
       <div className='sign-up-form-inputs'>
@@ -33,15 +44,15 @@ export default function Signup() {
           placeholder="Name"
           icon={<FontAwesomeIcon icon={faUser} />}
           onChange={nameOnChange}
-          />
-          <div className='sign-up-middle-input-container'>
-        <Input
-          inputStyle="large-and-wide"
-          placeholder="Email"
+        />
+        <div className='sign-up-middle-input-container'>
+          <Input
+            inputStyle="large-and-wide"
+            placeholder="Email"
             icon={<FontAwesomeIcon icon={faEnvelope} />}
             onChange={emailOnChange}
           />
-                    </div>
+        </div>
         <Input
           inputStyle='large-and-wide'
           icon={<FontAwesomeIcon icon={faLock} />}
@@ -51,10 +62,11 @@ export default function Signup() {
         />
       </div>
       <div className='signup-button-container'>
-      <Button
-            label='Sign in'
-            size={ButtonSizes.Default}
-          />
+        <Button
+          label='Sign in'
+          size={ButtonSizes.Default}
+          onClick={signUp}
+        />
       </div>
     </div>
   )
