@@ -8,6 +8,8 @@ import { ButtonSizes } from "../../enums/component-enums";
 import GoogleButton from 'react-google-button'
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
   const loginHeader = 'Login to your Account';
@@ -20,6 +22,14 @@ export default function Login() {
 
   const passWordOnChange = (e) => {
     setPassword(e.target.value);
+  }
+
+  const login = async () => {
+    try {
+      await signInWithEmailAndPassword(auth,email,password)
+    } catch(error) {
+      console.error(error)
+    }
   }
 
   const cardBody = (
@@ -44,6 +54,7 @@ export default function Login() {
           <Button
             label='Sign in'
             size={ButtonSizes.Default}
+            onClick={login}
           />
         </div>
       </div>

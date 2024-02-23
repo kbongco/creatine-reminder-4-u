@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../config/firebase";
+import { auth } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function Signup() {
