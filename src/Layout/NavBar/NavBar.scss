@@ -1,0 +1,52 @@
+.navbar-container {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+
+  .user-icon-container {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+
+    .navbar-user-icon {
+      display: flex;
+      justify-content: center;
+      height: 50px;
+      align-items: center;
+
+      svg {
+        height: 30px;
+        width: 25px;
+      }
+    }
+  }
+
+  .notifications-settings-container {
+    .notifications-icon-container {
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      svg {
+        height: 34px;
+        width: 33px;
+      }
+    }
+
+    .settings-icon-container {
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      svg {
+        height: 34px;
+        width: 33px;
+      }
+    }
+  }
+}
