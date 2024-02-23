@@ -2,7 +2,7 @@ import { faBell, faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './NavBar.scss';
 
-export default function NavBar({ children }: any) {
+export default function NavBar() {
   return (
     <>
       <div className='navbar-container'>
@@ -23,7 +23,6 @@ export default function NavBar({ children }: any) {
       </div>
 
       <div className='circle'>
-        {children}
       </div>
     </>
   )

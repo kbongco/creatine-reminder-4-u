@@ -16,3 +16,29 @@
   display: flex;
   justify-content: center;
 }
+
+.home-card-container {
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  align-items: center;
+  position: relative;
+
+  .learn-more-body-text {
+    text-align: center;
+    color: #000;
+
+    .learn-more-button-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .learnmore-disclaimer {
+    .learnmore-text {
+      color: #000;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  }
+}

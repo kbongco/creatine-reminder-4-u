@@ -1,9 +1,27 @@
 import NavBar from "../../Layout/NavBar/NavBar";
 import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
 import { ButtonSizes } from "../../enums/component-enums";
 import './Home.scss';
 
 export default function Home() {
+  const wantToLearnMore = 'Want to learn More?'
+  const learnMoreBody = (
+    <div className='learn-more-body-text'>
+      <p>New to using creatine? Want to learn how a little bit more about it? Click below to learn more!</p>
+      <div className='learn-more-button-container'>
+        <Button
+          label='learn more'
+          size={ButtonSizes.Medium}
+        />
+        </div>
+    </div>
+  )
+  const learnMoreDisclaimer = (
+    <div className='learnmore-disclaimer'>
+      <p className='learnmore-text'>** This app should not be used to diagnose, treat, etc. Please consult a medical professional before making any decisions</p>
+    </div>
+  )
   return (
     <>
       <NavBar />
@@ -15,6 +33,15 @@ export default function Home() {
         <Button
           label='Add a new tub'
           size={ButtonSizes.Default} />
+      </div>
+
+      <div className='home-card-container'>
+        <Card
+          size='medium-card'
+          header={wantToLearnMore}
+          body={learnMoreBody}
+          footer={learnMoreDisclaimer}
+        />
       </div>
     </>
   )
