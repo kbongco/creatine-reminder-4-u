@@ -15,6 +15,7 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signupTitle = 'Create an Account'
+  console.log(auth);
 
   const nameOnChange = (e) => {
     setName(e.target.value);
