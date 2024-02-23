@@ -58,7 +58,7 @@ export default function Login() {
       />
       </div>
       <p className='footer-no-account'>Don't have an account? </p>
-      <Link className='no-account-signup'>
+      <Link to='/sign-up' className='no-account-signup'>
         <p className='footer-no-account sign-up'>Sign up here</p>
       </Link>
     </div>
