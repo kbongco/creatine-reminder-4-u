@@ -23,6 +23,8 @@
   }
 
   .notifications-settings-container {
+    display: flex;
+
     .notifications-icon-container {
       width: 50px;
       display: flex;
@@ -49,4 +51,17 @@
       }
     }
   }
+}
+
+.circle {
+  background: linear-gradient(54deg, rgba(174, 190, 246, 1) 0%, rgba(174, 190, 246, 0) 100%);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    /* transform: translateY(20%); */
+    overflow: hidden;
+    height: 616px;
+    width: 568px;
 }

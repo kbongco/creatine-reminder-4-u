@@ -2,7 +2,7 @@ import { faBell, faGear, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './NavBar.scss';
 
-export default function NavBar() {
+export default function NavBar({ children }: any) {
   return (
     <>
       <div className='navbar-container'>
@@ -20,6 +20,10 @@ export default function NavBar() {
           </div>
         </div>
 
+      </div>
+
+      <div className='circle'>
+        {children}
       </div>
     </>
   )
