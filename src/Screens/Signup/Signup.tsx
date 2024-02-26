@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { auth, db } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { setDoc, doc } from "firebase/firestore";
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -33,7 +34,7 @@ export default function Signup() {
   const signUp = async () => {
     try {
       const credentials = await createUserWithEmailAndPassword(auth, email, password)
-      await db.collection('users').doc(credentials.user.uid).set({
+      await setDoc(doc(db, "users", credentials.user.uid), {
         name: name,
         email: email
       });
