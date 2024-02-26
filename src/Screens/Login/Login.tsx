@@ -8,11 +8,15 @@ import { ButtonSizes } from "../../enums/component-enums";
 import GoogleButton from 'react-google-button'
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const loginHeader = 'Login to your Account';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useNavigate();
 
   const emailOnChange = (e) => {
     setEmail(e.target.value);
@@ -20,6 +24,16 @@ export default function Login() {
 
   const passWordOnChange = (e) => {
     setPassword(e.target.value);
+  }
+
+  const login = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      // Need to do further testing for login after settings page is created with the logout functionality
+      history('/home');
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const cardBody = (
@@ -44,6 +58,7 @@ export default function Login() {
           <Button
             label='Sign in'
             size={ButtonSizes.Default}
+            onClick={login}
           />
         </div>
       </div>

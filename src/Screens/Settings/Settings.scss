@@ -1,0 +1,39 @@
+.settings-page-container {
+  color: white;
+  .settings-page-header-container {
+    height: 150px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+    .settings-page-header {
+      margin-left: 32px;
+    }
+  }
+
+  .settings-options-grid-container {
+    height: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .settings-page-options-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-column-gap: 16px;
+      grid-row-gap: 24px;
+      justify-items: center;
+
+      .settings-page-options-icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        svg {
+          height: 34px;
+          width: 33px;
+        }
+      }
+    }
+  }
+}
