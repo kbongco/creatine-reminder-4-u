@@ -10,11 +10,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const loginHeader = 'Login to your Account';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useNavigate();
 
   const emailOnChange = (e) => {
     setEmail(e.target.value);
@@ -26,8 +28,10 @@ export default function Login() {
 
   const login = async () => {
     try {
-      await signInWithEmailAndPassword(auth,email,password)
-    } catch(error) {
+      await signInWithEmailAndPassword(auth, email, password)
+      // Need to do further testing for login after settings page is created with the logout functionality
+      history('/home');
+    } catch (error) {
       console.error(error)
     }
   }
