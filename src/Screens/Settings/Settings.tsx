@@ -1,8 +1,20 @@
 import { faBell, faBookOpenReader, faComment, faJar, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Settings.scss';
+import { auth } from '../../config/firebase';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Settings() {
+  const history = useNavigate();
+
+  const logout = async () => {
+    try {
+      await auth.signOut();
+      history('/login')
+    } catch (error) {
+      console.error(`Unable to log out: ${error}`)
+    }
+  }
   return (
     <>
       <div className='settings-page-container'>
@@ -59,7 +71,9 @@ export default function Settings() {
               </div>
             </div>
             <div className='settings-page-options-text'>
+              <Link to='/login' onClick={logout}>
               <p>Log out</p>
+              </Link>
             </div>
           </div>
         </div>
