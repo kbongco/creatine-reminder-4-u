@@ -7,15 +7,17 @@ import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from '../../config/firebase';
+import { auth, db } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { setDoc, doc } from "firebase/firestore";
 
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signupTitle = 'Create an Account'
-  console.log(auth);
+  const history = useNavigate();
 
   const nameOnChange = (e) => {
     setName(e.target.value);
@@ -31,10 +33,18 @@ export default function Signup() {
 
   const signUp = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      const credentials = await createUserWithEmailAndPassword(auth, email, password)
+      await setDoc(doc(db, "users", credentials.user.uid), {
+        name: name,
+        email: email
+      });
+      setName('');
+      setEmail('');
+      setPassword('');
+      history('/home');
       console.log('this works');
     } catch (error) {
-      console.error(error);
+      console.error(`There has been an error signing up: ${error}`);
     }
   }
   const signupCardBoy = (
