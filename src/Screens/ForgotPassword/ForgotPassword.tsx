@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../../components/Button/Button";
 import { ButtonSizes } from "../../enums/component-enums";
 import './ForgotPassword.scss';
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../config/firebase";
 
 export default function Forgot() {
   const [email, setEmail] = useState('');
@@ -15,8 +17,12 @@ export default function Forgot() {
     setEmail(e.target.value);
   }
   
-  const findPassword = (e) => {
-    console.log('test')
+  const findPassword = async (e) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+    } catch(error){
+      console.error(`Unable to reset password ${error}`)
+    }
   }
   const forgotBody = (
     <div className='forgot-password-body'>
@@ -47,7 +53,6 @@ export default function Forgot() {
             size='medium-card'
             header={forgotTitle}
             body={forgotBody}
-            footer='test'
           />
           </div>
       </div>
