@@ -1,9 +1,15 @@
 .input-container {
   margin-top: 16px;
+  display: flex;
+  flex-direction: column;
 
   input {
     text-indent: 64px;
     background-color: #d9d9d9;
+
+    &.default input {
+      text-indent: 8px; /* Specific text-indent for .default */
+    }
 
     input::placeholder {
       margin-left: 16px;

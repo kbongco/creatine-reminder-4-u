@@ -18,6 +18,6 @@ export default interface InputProps {
   label?: string;
   type?: string;
   placeholder?: string;
-  inputStyle: string;
-  onChange: any;
+  inputStyle?: string;
+  onChange?: any;
 }
