@@ -21,3 +21,7 @@ export default interface InputProps {
   inputStyle?: string;
   onChange?: any;
 }
+
+export default interface CheckboxProps {
+  label: string;
+}

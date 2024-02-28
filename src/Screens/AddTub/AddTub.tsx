@@ -1,12 +1,14 @@
 import NavBar from "../../Layout/NavBar/NavBar";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
+import CheckBox from "../../components/Checkbox/Checkbox";
 import Input from "../../components/Input/Input";
 import { ButtonSizes } from "../../enums/component-enums";
 import './AddTub.scss';
 
 export default function AddATub() {
   const addHeader = 'Add a new tub'
+  const checkBoxText = 'Share this with other users'
   const addTubBody = (
     <div className='add-new-tub-container'>
       <div className='add-new-tub-form-container'>
@@ -31,10 +33,11 @@ export default function AddATub() {
             label='Servings Per Container'
           />
         </div>
-        <div className='checkbox-user-container'>
-          Share this with other users
-        </div>
       </div>
+      <div className='checkbox-user-container'>
+          <CheckBox
+            label={checkBoxText} />
+        </div>
       <div className='add-new-tub-button'>
         <Button
           label='Add'
