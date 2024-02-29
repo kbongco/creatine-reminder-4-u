@@ -7,8 +7,8 @@ export default interface ButtonProps {
 }
 
 export default interface CardProps {
-  header?: string;
-  body?: string | ReactNode;
+  header: string;
+  body: string | ReactNode;
   footer?: string | ReactNode;
   size?: string;
 }
@@ -18,6 +18,12 @@ export default interface InputProps {
   label?: string;
   type?: string;
   placeholder?: string;
-  inputStyle: string;
-  onChange: any;
+  inputStyle?: string;
+  onChange?: any;
+  name?: string;
+  value: string | number;
+}
+
+export default interface CheckboxProps {
+  label?: string;
 }
