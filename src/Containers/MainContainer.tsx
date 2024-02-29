@@ -25,12 +25,13 @@ export default function MainContainer() {
           { path: '/', element: <Welcome /> },
           { path: '/login', element: <Login /> },
           { path: '/sign-up', element: <Signup /> },
-          // currentUser ? { path: '/home', element: <Home /> } : { path: '/home', element: <Navigate to="/login" /> },
-          // currentUser ? { path: '/settings', element: <Settings /> } : { path: '/settings', element: <Navigate to="/login" /> },
-          {path: '/forgot-password', element: <Forgot/>},
-          { path: '/home', element: <Home /> },
-          { path: '/settings', element: <Settings /> },
-          { path:'/add-tub', element: <AddATub/>}
+          currentUser ? { path: '/home', element: <Home /> } : { path: '/home', element: <Navigate to="/login" /> },
+          currentUser ? { path: '/settings', element: <Settings /> } : { path: '/settings', element: <Navigate to="/login" /> },
+          currentUser ? {path:'/add-tub', element: <AddATub/>} : {path:'/add-tub', element: <Navigate to='/login'/>}
+          // {path: '/forgot-password', element: <Forgot/>},
+          // { path: '/home', element: <Home /> },
+          // { path: '/settings', element: <Settings /> },
+          // { path:'/add-tub', element: <AddATub/>}
         ])
       }
     </>

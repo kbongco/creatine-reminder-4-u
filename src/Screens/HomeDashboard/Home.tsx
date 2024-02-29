@@ -2,10 +2,12 @@ import NavBar from "../../Layout/NavBar/NavBar";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import { ButtonSizes } from "../../enums/component-enums";
+import { useNavigate } from "react-router-dom";
 import './Home.scss';
 
 export default function Home() {
   const wantToLearnMore = 'Want to learn More?'
+  const history = useNavigate();
   const learnMoreBody = (
     <div className='learn-more-body-text'>
       <p>New to using creatine? Want to learn how a little bit more about it? Click below to learn more!</p>
@@ -32,7 +34,8 @@ export default function Home() {
       <div className='home-add-tub-container'>
         <Button
           label='Add a new tub'
-          size={ButtonSizes.Default} />
+          size={ButtonSizes.Default}
+          onClick={() => history('/add-tub') } />
       </div>
 
       <div className='home-card-container'>
