@@ -18,7 +18,6 @@ export default function AddATub() {
     servingSize: '',
     servingsPerContainer: ''
   });
-  // console.log(db);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +26,6 @@ export default function AddATub() {
       [name]: value
     });
   }
-  // console.log(auth.currentUser);
 
   const getUserId = () => {
     const user = auth.currentUser;
@@ -49,12 +47,10 @@ export default function AddATub() {
 
   const submitTub = (e) => {
     e.preventDefault();
-    // Save data to Firestore
     const userId = getUserId();
     if (userId) {
       addTub(userId, formData);
     }
-    // Reset the form data
     setFormData({
       tubName: '',
       totalPerContainer: '',
