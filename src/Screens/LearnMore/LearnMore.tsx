@@ -13,12 +13,17 @@ export default function LearnMore() {
         <div className='disclaimer-container'>
           <div className='disclaimer-text'>
             <p>** This app should not be used to diagnose, treat, etc. Please consult a medical professional before making any decisions</p>
-            </div>
+          </div>
         </div>
-        {/* <Accordion
-          title='test'
-          content='test' /> */}
       </div>
+
+      <div className='information-container'>
+        <div className='accordion-information-containers'>
+          <Accordion
+            title='What is creatine?'
+            content='test' />
+          </div>
+        </div>
     </>
   )
 }
