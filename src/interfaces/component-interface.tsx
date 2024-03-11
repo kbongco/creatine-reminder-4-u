@@ -27,3 +27,8 @@ export default interface InputProps {
 export default interface CheckboxProps {
   label?: string;
 }
+
+export default interface AccordionProps {
+  title: string;
+  content: ReactNode | string;
+}

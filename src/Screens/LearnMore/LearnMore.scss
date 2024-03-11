@@ -1,0 +1,19 @@
+.container {
+  .title-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+  .disclaimer-container {
+    display: flex;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    .disclaimer-text {
+      font-size: 0.95rem;
+    }
+  }
+}
