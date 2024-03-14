@@ -22,8 +22,23 @@ export default function LearnMore() {
           <Accordion
             title='What is creatine?'
             content='test' />
-          </div>
+          <Accordion
+            title='What are the benefits'
+            content='test' />
+          <Accordion
+            title='Is it safe for me?'
+            content='test' />
+          <Accordion
+            title='Does this affect my kidneys?'
+            content='test' />
+          <Accordion
+            title='Im natural, is this a PED?'
+            content='test' />
+          <Accordion
+            title='Help! Im bloating from this!'
+            content='test' />
         </div>
+      </div>
     </>
   )
 }

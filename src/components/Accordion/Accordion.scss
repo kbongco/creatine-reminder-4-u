@@ -1,0 +1,36 @@
+.accordion-container {
+  width: 386px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #efefd0;
+  display: flex;
+  justify-content: space-around;
+  color: #1a659e;
+  margin-top: 16px;
+
+  .accordion-title-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+    .accordion-title {
+      margin-top: 8px;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+      &.open {
+    /* Define styles for open state */
+    background-color: #ffffff; /* For example, change background color when open */
+  }
+  }
+
+  .arrow-container {
+    align-items: center;
+    display: flex;
+
+    svg {
+      height: 29px;
+    }
+  }
+}

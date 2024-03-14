@@ -16,9 +16,17 @@
       font-size: 0.95rem;
     }
   }
+}
 
-  .information-container {
-    // display: flex;
-    // justify-content: center;
+.information-container {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+
+  .accordion-information-containers {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 16px;
   }
 }
