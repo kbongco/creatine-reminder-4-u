@@ -1,10 +1,9 @@
 .accordion-container {
   width: 386px;
-  height: 60px;
-  border-radius: 10px;
-  background-color: #efefd0;
-  color: #1a659e;
   margin-top: 16px;
+  background-color: #efefd0;
+  border-radius: 20px;
+  color: #1A659E;
 
   .accordion-title-container {
     height: 60px;
@@ -33,20 +32,21 @@
       }
 
       &.open {
-        /* Define styles for open state */
-        background-color: #ffffff; /* For example, change background color when open */
+        background-color: #ffffff; 
       }
     }
   }
 
   .accordion-content {
-    .accordion-content-container {
-      background-color: #efefd0;
-      height: 180px;
+    background-color: #efefd0;
+    height: 180px;
 
-      p {
-        margin-top: 0;
-      }
+    p {
+      margin-top: 0;
     }
+  }
+
+  .spacer {
+    height: 10px; 
   }
 }

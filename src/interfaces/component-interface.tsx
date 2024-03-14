@@ -31,4 +31,6 @@ export default interface CheckboxProps {
 export default interface AccordionProps {
   title: string;
   content: ReactNode | string;
+  isOpen: boolean;
+  onClick?: () => void;
 }

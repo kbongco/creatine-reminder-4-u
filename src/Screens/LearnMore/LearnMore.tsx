@@ -1,9 +1,21 @@
 import NavBar from "../../Layout/NavBar/NavBar";
 import './LearnMore.scss';
 import Accordion from "../../components/Accordion/Accordion";
+import { useState } from "react";
 
 export default function LearnMore() {
   const creatineDescription = 'Creatine is a natural compound found in muscles, often used as a supplement by gym-goers to enhance strength, power, and muscle mass during high-intensity workouts.';
+  const [accordionStates, setAccordionStates] = useState({
+    creatine: false,
+    benefits: false
+  });
+
+  const toggleAccordion = (accordion) => {
+    setAccordionStates({
+      ...accordionStates,
+      [accordion]: !accordionStates[accordion]
+    });
+  };
 
   return (
     <>
@@ -21,13 +33,17 @@ export default function LearnMore() {
 
       <div className='information-container'>
         <div className='accordion-information-containers'>
-          <Accordion
+        <Accordion
             title='What is creatine?'
-            content={creatineDescription} />
-          {/* <Accordion
-            title='What are the benefits'
-            content='test' />
+            content={creatineDescription}
+            isOpen={accordionStates.creatine}
+            onClick={() => toggleAccordion('creatine')} />
           <Accordion
+            title='What are the benefits'
+            content='test'
+            isOpen={accordionStates.benefits}
+            onClick={() => toggleAccordion('benefits')} />
+          {/* <Accordion
             title='Is it safe for me?'
             content='test' />
           <Accordion
