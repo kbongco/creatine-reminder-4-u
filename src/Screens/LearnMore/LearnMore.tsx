@@ -3,6 +3,8 @@ import './LearnMore.scss';
 import Accordion from "../../components/Accordion/Accordion";
 
 export default function LearnMore() {
+  const creatineDescription = 'Creatine is a natural compound found in muscles, often used as a supplement by gym-goers to enhance strength, power, and muscle mass during high-intensity workouts.';
+
   return (
     <>
       <NavBar />
@@ -21,8 +23,8 @@ export default function LearnMore() {
         <div className='accordion-information-containers'>
           <Accordion
             title='What is creatine?'
-            content='test' />
-          <Accordion
+            content={creatineDescription} />
+          {/* <Accordion
             title='What are the benefits'
             content='test' />
           <Accordion
@@ -36,7 +38,7 @@ export default function LearnMore() {
             content='test' />
           <Accordion
             title='Help! Im bloating from this!'
-            content='test' />
+            content='test' /> */}
         </div>
       </div>
     </>

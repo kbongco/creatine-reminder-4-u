@@ -3,34 +3,50 @@
   height: 60px;
   border-radius: 10px;
   background-color: #efefd0;
-  display: flex;
-  justify-content: space-around;
   color: #1a659e;
   margin-top: 16px;
 
   .accordion-title-container {
     height: 60px;
     display: flex;
+    justify-content: center;
     align-items: center;
 
-    .accordion-title {
-      margin-top: 8px;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-    }
+    .accordion-title-and-arrow {
+      display: flex;
+      justify-content: space-between;
+      width: 75%;
+
+      .accordion-title {
+        margin-top: 8px;
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .arrow-container {
+        align-items: center;
+        display: flex;
+
+        svg {
+          height: 29px;
+        }
+      }
 
       &.open {
-    /* Define styles for open state */
-    background-color: #ffffff; /* For example, change background color when open */
-  }
+        /* Define styles for open state */
+        background-color: #ffffff; /* For example, change background color when open */
+      }
+    }
   }
 
-  .arrow-container {
-    align-items: center;
-    display: flex;
+  .accordion-content {
+    .accordion-content-container {
+      background-color: #efefd0;
+      height: 180px;
 
-    svg {
-      height: 29px;
+      p {
+        margin-top: 0;
+      }
     }
   }
 }
