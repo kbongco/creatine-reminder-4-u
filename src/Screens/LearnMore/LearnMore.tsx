@@ -2,13 +2,11 @@ import NavBar from "../../Layout/NavBar/NavBar";
 import './LearnMore.scss';
 import Accordion from "../../components/Accordion/Accordion";
 import { useState } from "react";
+import creatineQuestions from '../../utils/creatineQuestions.json';
 
 export default function LearnMore() {
   const creatineDescription = 'Creatine is a natural compound found in muscles, often used as a supplement by gym-goers to enhance strength, power, and muscle mass during high-intensity workouts.';
-  const [accordionStates, setAccordionStates] = useState({
-    creatine: false,
-    benefits: false
-  });
+  const [accordionStates, setAccordionStates] = useState({});
 
   const toggleAccordion = (accordion) => {
     setAccordionStates({
@@ -16,6 +14,8 @@ export default function LearnMore() {
       [accordion]: !accordionStates[accordion]
     });
   };
+
+  console.log(creatineQuestions);
 
   return (
     <>
@@ -33,7 +33,15 @@ export default function LearnMore() {
 
       <div className='information-container'>
         <div className='accordion-information-containers'>
-        <Accordion
+          {creatineQuestions.map((q, idx) =>
+            <Accordion
+            key={idx}
+            title={q.questionTitle}
+            content={q.answerDescription}
+            isOpen={accordionStates[idx]}
+            onClick={() => toggleAccordion(idx)}
+            />)}
+          {/* <Accordion
             title='What is creatine?'
             content={creatineDescription}
             isOpen={accordionStates.creatine}
@@ -42,7 +50,7 @@ export default function LearnMore() {
             title='What are the benefits'
             content='test'
             isOpen={accordionStates.benefits}
-            onClick={() => toggleAccordion('benefits')} />
+            onClick={() => toggleAccordion('benefits')} /> */}
           {/* <Accordion
             title='Is it safe for me?'
             content='test' />

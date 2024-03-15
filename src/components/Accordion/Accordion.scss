@@ -3,7 +3,7 @@
   margin-top: 16px;
   background-color: #efefd0;
   border-radius: 20px;
-  color: #1A659E;
+  color: #1a659e;
 
   .accordion-title-container {
     height: 60px;
@@ -32,7 +32,7 @@
       }
 
       &.open {
-        background-color: #ffffff; 
+        background-color: #ffffff;
       }
     }
   }
@@ -40,6 +40,9 @@
   .accordion-content {
     background-color: #efefd0;
     height: 180px;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    padding: 0 16px;
 
     p {
       margin-top: 0;
@@ -47,6 +50,6 @@
   }
 
   .spacer {
-    height: 10px; 
+    height: 10px;
   }
 }
