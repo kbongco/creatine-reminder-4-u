@@ -34,3 +34,8 @@ export default interface AccordionProps {
   isOpen: boolean;
   onClick?: () => void;
 }
+
+export default interface DoughtChartProps {
+  data: string[];
+  options: string[];
+}
