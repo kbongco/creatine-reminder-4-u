@@ -9,7 +9,7 @@ ChartJs.register(
 export default function DoughnutChart({data, options}:any) {
   return (
     <>
-      <div>
+      <div className='doughnut-container'>
         <Doughnut
           data={data}
           options={options} />
