@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,9 +17,28 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_APP_MEASUREMENT_ID,
 };
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+// Get Creatine tub logic;
+
+export const getCreatineTubs = async (userId) => {
+  try {
+    const tubsCollection = collection(db, `users/${userId}/creatineTubs`);
+    console.log(tubsCollection, "col");
+    console.log(userId, "test");
+    const snapshot = await getDocs(tubsCollection);
+    console.log(snapshot, "test");
+    const tubs = [];
+    console.log(tubs, "tad");
+    snapshot.forEach((doc) => {
+      tubs.push({ id: doc.id, ...doc.data() });
+    });
+    return tubs;
+  } catch (error) {
+    console.error("Error getting creatine tubs:", error);
+    throw error;
+  }
+};
