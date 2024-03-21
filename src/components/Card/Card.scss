@@ -42,6 +42,12 @@
 
       .card-header {
         font-size: 1rem;
+        display: flex;
+        justify-content: end;
+
+        h1 {
+          margin: 0;
+        }
       }
     }
   }
@@ -86,8 +92,8 @@
     height: 621px;
     width: 385px;
     background-color: #d9d9d9;
-    
-    .card-header{
+
+    .card-header {
       text-align: center;
       height: 80px;
     }

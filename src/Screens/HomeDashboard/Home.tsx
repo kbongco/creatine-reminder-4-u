@@ -8,10 +8,11 @@ import { useCurrentUser } from "../../hooks/userCurrentUser";
 import { useEffect, useState } from "react";
 import { getCreatineTubs } from "../../config/firebase";
 import DoughnutChart from "../../components/Chart/Doughnut";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
-  console.log(props);
   const tubsTest = ['test']
   const currentUserId = useCurrentUser();
   const wantToLearnMore = 'Want to learn More?'
@@ -48,7 +49,11 @@ export default function Home() {
     fetchTubs();
   }, [currentUserId])
 
-  console.log(tubs);
+  const cardReminderTitle = (
+    <div className='reminder-title'>
+      <p>March 22 2024</p>
+    </div>
+  )
 
   const data = {
     labels: ['Creatine consumed', 'Creatine Remaining'],
@@ -64,13 +69,7 @@ export default function Home() {
     plugins: {
       legend: {
         labels: {
-          // This sets the color of the labels
           color: 'white',
-          // You can also specify other label options here, such as font size, font family, etc.
-          // Example:
-          // fontSize: 16,
-          // fontFamily: 'Arial',
-          // fontStyle: 'bold'
         }
       }
     }
@@ -95,17 +94,44 @@ export default function Home() {
               body={learnMoreBody}
               footer={learnMoreDisclaimer} />
           </div></> :
-        <div>
-          <div className='current-user-welcome'>
-            <h1>Welcome Back</h1>
-            <div className='current-user-doughnut-container'>
-            <DoughnutChart
-            data={data}
-            options={options} />
+        <>
+          <div>
+            <div className='current-user-welcome'>
+              <h1>Welcome Back</h1>
+              <div className='current-user-navigation'>
+                <div className='current-user-left-arrow'>
+                  <FontAwesomeIcon icon={faCaretLeft} />
+                </div>
+                <div className='current-user-doughnut-container'>
+                  <DoughnutChart
+                    data={data}
+                    options={options} />
+                </div>
+                <div className='current-user-left-arrow'>
+                  <FontAwesomeIcon icon={faCaretRight} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+          <div className='testing'>
+            <div className='circle-button' />
+            <div className='circle-button' />
+          </div>
 
+          <div className='card-containers-reminders'>
+            <Card
+              size='small-wide'
+              header={cardReminderTitle}
+              body='Testing'
+            />
+            <Card
+              size='small-wide'
+              header='Test'
+              body='Testing'
+              footer='Test'
+            />
+          </div>
+        </>
       }
     </>
   )
