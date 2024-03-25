@@ -14,6 +14,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
   const tubsTest = ['test']
+  const getDate = (date) => {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  };
+  const today = new Date();
+  const todayDate = getDate(today);
+
+  // Get tomorrow's date
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+  const tomorrowDate = getDate(tomorrow);
   const currentUserId = useCurrentUser();
   const wantToLearnMore = 'Want to learn More?'
   const history = useNavigate();
@@ -49,19 +60,19 @@ export default function Home() {
     fetchTubs();
   }, [currentUserId])
 
-  const cardReminderTitle = (
+  const cardReminderTitle = (dateString) => (
     <div className='reminder-title'>
       <div className='reminder-settings-container'>
-      <FontAwesomeIcon icon={faGear} />
+        <FontAwesomeIcon icon={faGear} />
       </div>
-      <p>March 22 2024</p>
+      <p>{dateString}</p>
     </div>
-  )
+  );
 
   const cardreminderBody = (
     <div className='card-reminder'>
       <div className='card-reminder-text'>
-      <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
+        <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
       </div>
       <div className='card-reminder-button-container'>
         <p>Remove Reminder</p>
@@ -139,12 +150,12 @@ export default function Home() {
           <div className='card-containers-reminders'>
             <Card
               size='small-wide'
-              header={cardReminderTitle}
+              header={cardReminderTitle(todayDate)}
               body={cardreminderBody}
             />
             <Card
               size='small-wide'
-              header={cardReminderTitle}
+              header={cardReminderTitle(tomorrowDate)}
               body={cardreminderBody}
             />
           </div>
