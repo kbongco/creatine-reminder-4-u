@@ -8,7 +8,7 @@ import { useCurrentUser } from "../../hooks/userCurrentUser";
 import { useEffect, useState } from "react";
 import { getCreatineTubs } from "../../config/firebase";
 import DoughnutChart from "../../components/Chart/Doughnut";
-import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faCaretRight, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
@@ -51,7 +51,25 @@ export default function Home() {
 
   const cardReminderTitle = (
     <div className='reminder-title'>
+      <div className='reminder-settings-container'>
+      <FontAwesomeIcon icon={faGear} />
+      </div>
       <p>March 22 2024</p>
+    </div>
+  )
+
+  const cardreminderBody = (
+    <div className='card-reminder'>
+      <div className='card-reminder-text'>
+      <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
+      </div>
+      <div className='card-reminder-button-container'>
+        <p>Remove Reminder</p>
+        <Button
+          label='Completed'
+          size={ButtonSizes.Small}
+        />
+      </div>
     </div>
   )
 
@@ -122,13 +140,12 @@ export default function Home() {
             <Card
               size='small-wide'
               header={cardReminderTitle}
-              body='Testing'
+              body={cardreminderBody}
             />
             <Card
               size='small-wide'
-              header='Test'
-              body='Testing'
-              footer='Test'
+              header={cardReminderTitle}
+              body={cardreminderBody}
             />
           </div>
         </>

@@ -44,10 +44,14 @@
         font-size: 1rem;
         display: flex;
         justify-content: end;
+        height: 25%;
+        padding: 0 16px;
+      }
 
-        h1 {
-          margin: 0;
-        }
+      .card-content {
+        height: 25%;
+        height: 55%;
+        margin-top: 8px;
       }
     }
   }

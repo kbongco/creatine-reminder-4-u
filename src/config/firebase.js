@@ -28,7 +28,6 @@ export const getCreatineTubs = async (userId) => {
   try {
     const tubsCollection = collection(db, `users/${userId}/creatineTubs`);
     console.log(tubsCollection, "col");
-    console.log(userId, "test");
     const snapshot = await getDocs(tubsCollection);
     console.log(snapshot, "test");
     const tubs = [];
