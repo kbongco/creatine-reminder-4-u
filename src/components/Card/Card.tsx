@@ -7,7 +7,7 @@ export default function Card({ header, body, footer, size }: CardProps) {
     <div className={`card-container ${size}`}>
       <div className='card'>
         <div className='card-header'>
-          <h1>{header}</h1>
+         {header}
         </div>
         <div className='card-content'>
         {body}
