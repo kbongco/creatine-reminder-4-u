@@ -16,6 +16,7 @@ export default function Carousel({ items }: CarouselProps) {
   };
 
   const goToSlide = (index) => {
+    console.log('this work')
     setCurrentIndex(index);
   };
 
@@ -23,8 +24,8 @@ export default function Carousel({ items }: CarouselProps) {
     <>
       <div className="carousel">
         <div className='current-user-left-arrow'>
-        <button className='icon-button' onClick={()=>console.log('button')}>
-          <FontAwesomeIcon icon={faCaretLeft} />
+          <button className='icon-button' onClick={() => console.log('button')}>
+            <FontAwesomeIcon icon={faCaretLeft} />
           </button>
         </div>
         {items.map((item, index) => (
@@ -36,23 +37,23 @@ export default function Carousel({ items }: CarouselProps) {
             {item}
           </div>
         ))}
-        <div className="dots">
-          {items.map((_, index) => (
-            <span
-              key={index}
-              className={`dot ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              role="button"
-              tabIndex="0"
-            />
-          ))}
-        </div>
         <div className='current-user-left-arrow'>
-          <button className='icon-button' onClick={()=>console.log('button')}>
+          <button className='icon-button' onClick={() => console.log('button')}>
             <FontAwesomeIcon icon={faCaretRight} />
-            </button>
+          </button>
         </div>
+      </div>
+      <div className="dots">
+        {items.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+            role="button"
+            tabIndex="0"
+          />
+        ))}
       </div>
     </>
   );

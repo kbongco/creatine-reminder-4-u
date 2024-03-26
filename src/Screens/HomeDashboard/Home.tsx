@@ -112,6 +112,9 @@ export default function Home() {
                                 data={data}
                                 options={options}
                               />
+    </div>,
+    <div>
+      <h1>Testing second item</h1>
     </div>
   ])
   return (
