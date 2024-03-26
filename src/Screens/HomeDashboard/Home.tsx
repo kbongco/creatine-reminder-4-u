@@ -8,7 +8,7 @@ import { useCurrentUser } from "../../hooks/userCurrentUser";
 import { useEffect, useState } from "react";
 import { getCreatineTubs } from "../../config/firebase";
 import DoughnutChart from "../../components/Chart/Doughnut";
-import { faCaretLeft, faCaretRight, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "../../components/Carousel/Carousel";
 
@@ -22,7 +22,6 @@ export default function Home() {
   const today = new Date();
   const todayDate = getDate(today);
 
-  // Get tomorrow's date
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowDate = getDate(tomorrow);
@@ -108,7 +107,7 @@ export default function Home() {
   const carouselItems = ([
     <div className='current-user-navigation'>
                               <DoughnutChart
-                                key="doughnut-chart" // Make sure to provide a unique key prop
+                                key="doughnut-chart" 
                                 data={data}
                                 options={options}
                               />

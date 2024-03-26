@@ -7,7 +7,7 @@ export default interface ButtonProps {
 }
 
 export default interface CardProps {
-  header: string;
+  header: string | ReactNode;
   body: string | ReactNode;
   footer?: string | ReactNode;
   size?: string;

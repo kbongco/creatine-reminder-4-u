@@ -50,7 +50,7 @@ export default function Carousel({ items }: CarouselProps) {
             onClick={() => goToSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
             role="button"
-            tabIndex="0"
+            tabIndex={0}
           />
         ))}
       </div>
