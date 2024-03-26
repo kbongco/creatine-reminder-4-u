@@ -15,8 +15,7 @@ export default function Carousel({ items }: CarouselProps) {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? items.length - 1 : prevIndex - 1));
   };
 
-  const goToSlide = (index) => {
-    console.log('this work')
+  const goToSlide = (index:number) => {
     setCurrentIndex(index);
   };
 
@@ -24,7 +23,7 @@ export default function Carousel({ items }: CarouselProps) {
     <>
       <div className="carousel">
         <div className='current-user-left-arrow'>
-          <button className='icon-button' onClick={() => console.log('button')}>
+          <button className='icon-button' onClick={prevSlide}>
             <FontAwesomeIcon icon={faCaretLeft} />
           </button>
         </div>
@@ -38,7 +37,7 @@ export default function Carousel({ items }: CarouselProps) {
           </div>
         ))}
         <div className='current-user-left-arrow'>
-          <button className='icon-button' onClick={() => console.log('button')}>
+          <button className='icon-button' onClick={nextSlide}>
             <FontAwesomeIcon icon={faCaretRight} />
           </button>
         </div>

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEventHandler, ReactNode } from "react";
 
 export default interface ButtonProps {
   label?: string;
@@ -19,7 +19,7 @@ export default interface InputProps {
   type?: string;
   placeholder?: string;
   inputStyle?: string;
-  onChange?: any;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   name?: string;
   value: string | number;
 }
@@ -41,5 +41,5 @@ export default interface DoughtChartProps {
 }
 
 export default interface CarouselProps {
-  items: any[];
+  items: ReactNode[];
 }
