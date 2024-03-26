@@ -8,8 +8,9 @@ import { useCurrentUser } from "../../hooks/userCurrentUser";
 import { useEffect, useState } from "react";
 import { getCreatineTubs } from "../../config/firebase";
 import DoughnutChart from "../../components/Chart/Doughnut";
-import { faCaretLeft, faCaretRight, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Carousel from "../../components/Carousel/Carousel";
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
@@ -21,7 +22,6 @@ export default function Home() {
   const today = new Date();
   const todayDate = getDate(today);
 
-  // Get tomorrow's date
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowDate = getDate(tomorrow);
@@ -103,6 +103,19 @@ export default function Home() {
       }
     }
   };
+
+  const carouselItems = ([
+    <div className='current-user-navigation'>
+                              <DoughnutChart
+                                key="doughnut-chart" 
+                                data={data}
+                                options={options}
+                              />
+    </div>,
+    <div>
+      <h1>Testing second item</h1>
+    </div>
+  ])
   return (
     <>
       <NavBar />
@@ -127,24 +140,9 @@ export default function Home() {
           <div>
             <div className='current-user-welcome'>
               <h1>Welcome Back</h1>
-              <div className='current-user-navigation'>
-                <div className='current-user-left-arrow'>
-                  <FontAwesomeIcon icon={faCaretLeft} />
-                </div>
-                <div className='current-user-doughnut-container'>
-                  <DoughnutChart
-                    data={data}
-                    options={options} />
-                </div>
-                <div className='current-user-left-arrow'>
-                  <FontAwesomeIcon icon={faCaretRight} />
-                </div>
-              </div>
+              <Carousel
+                items={carouselItems} />
             </div>
-          </div>
-          <div className='testing'>
-            <div className='circle-button' />
-            <div className='circle-button' />
           </div>
 
           <div className='card-containers-reminders'>
