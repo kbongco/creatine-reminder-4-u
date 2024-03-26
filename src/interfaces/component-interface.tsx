@@ -39,3 +39,7 @@ export default interface DoughtChartProps {
   data: string[];
   options: string[];
 }
+
+export default interface CarouselProps {
+  items: any[];
+}

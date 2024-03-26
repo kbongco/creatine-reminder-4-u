@@ -10,6 +10,7 @@ import { getCreatineTubs } from "../../config/firebase";
 import DoughnutChart from "../../components/Chart/Doughnut";
 import { faCaretLeft, faCaretRight, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Carousel from "../../components/Carousel/Carousel";
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
@@ -103,6 +104,16 @@ export default function Home() {
       }
     }
   };
+
+  const carouselItems = ([
+    <div className='current-user-navigation'>
+                              <DoughnutChart
+                                key="doughnut-chart" // Make sure to provide a unique key prop
+                                data={data}
+                                options={options}
+                              />
+    </div>
+  ])
   return (
     <>
       <NavBar />
@@ -127,24 +138,9 @@ export default function Home() {
           <div>
             <div className='current-user-welcome'>
               <h1>Welcome Back</h1>
-              <div className='current-user-navigation'>
-                <div className='current-user-left-arrow'>
-                  <FontAwesomeIcon icon={faCaretLeft} />
-                </div>
-                <div className='current-user-doughnut-container'>
-                  <DoughnutChart
-                    data={data}
-                    options={options} />
-                </div>
-                <div className='current-user-left-arrow'>
-                  <FontAwesomeIcon icon={faCaretRight} />
-                </div>
-              </div>
+              <Carousel
+                items={carouselItems} />
             </div>
-          </div>
-          <div className='testing'>
-            <div className='circle-button' />
-            <div className='circle-button' />
           </div>
 
           <div className='card-containers-reminders'>

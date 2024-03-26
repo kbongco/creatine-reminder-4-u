@@ -1,0 +1,19 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  .current-user-left-arrow {
+    display: flex;
+    align-items:center;
+    svg {
+      height: 50px;
+    }
+  }
+
+  .icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
+  }
+}
