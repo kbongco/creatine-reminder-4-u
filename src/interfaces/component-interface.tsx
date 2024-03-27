@@ -3,7 +3,7 @@ import { ChangeEventHandler, ReactNode } from "react";
 export default interface ButtonProps {
   label?: string;
   size?: string;
-  onClick?: () => void;
+  onClick?: any;
 }
 
 export default interface CardProps {
@@ -32,7 +32,7 @@ export default interface AccordionProps {
   title: string;
   content: ReactNode | string;
   isOpen: boolean;
-  onClick?: () => void;
+  onClick?: any;
 }
 
 export default interface DoughtChartProps {

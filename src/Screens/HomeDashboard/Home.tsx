@@ -12,29 +12,24 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "../../components/Carousel/Carousel";
 import ReminderCalendar from "../../components/Calendar/Calendar";
-// import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
-
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
-  const tubsTest = ['test']
+  const tubsTest = ['test'];
   const getDate = (date) => {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   };
   const today = new Date();
   const todayDate = getDate(today);
-  const [value, onChange] = useState<Value>(new Date());
+  const [value, onChange] = useState(new Date());
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowDate = getDate(tomorrow);
   const currentUserId = useCurrentUser();
-  const wantToLearnMore = 'Want to learn More?'
+  const wantToLearnMore = 'Want to learn More?';
   const history = useNavigate();
+
   const learnMoreBody = (
     <div className='learn-more-body-text'>
       <p>New to using creatine? Want to learn how a little bit more about it? Click below to learn more!</p>
@@ -45,19 +40,19 @@ export default function Home() {
         />
       </div>
     </div>
-  )
+  );
+
   const learnMoreDisclaimer = (
     <div className='learnmore-disclaimer'>
       <p className='learnmore-text'>** This app should not be used to diagnose, treat, etc. Please consult a medical professional before making any decisions</p>
     </div>
-  )
+  );
 
   useEffect(() => {
     const fetchTubs = async () => {
       try {
-        const userId = currentUserId
+        const userId = currentUserId;
         const userTubs = await getCreatineTubs(userId);
-        console.log(userTubs)
         setCurrentTubs(userTubs);
       } catch (error) {
         console.error('Error fetching creatine tubs:', error);
@@ -65,9 +60,9 @@ export default function Home() {
     };
 
     fetchTubs();
-  }, [currentUserId])
+  }, [currentUserId]);
 
-  const cardReminderTitle = (dateString:string) => (
+  const cardReminderTitle = (dateString) => (
     <div className='reminder-title'>
       <div className='reminder-settings-container'>
         <FontAwesomeIcon icon={faGear} />
@@ -76,20 +71,6 @@ export default function Home() {
     </div>
   );
 
-  const cardreminderBody = (
-    <div className='card-reminder'>
-      <div className='card-reminder-text'>
-        <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
-      </div>
-      <div className='card-reminder-button-container'>
-        <p>Remove Reminder</p>
-        <Button
-          label='Completed'
-          size={ButtonSizes.Small}
-        />
-      </div>
-    </div>
-  )
 
   const data = {
     labels: ['Creatine consumed', 'Creatine Remaining'],
@@ -99,7 +80,7 @@ export default function Home() {
       backgroundColor: ['white', 'green'],
       borderColor: ['white', 'green']
     }]
-  }
+  };
 
   const options = {
     plugins: {
@@ -122,7 +103,45 @@ export default function Home() {
     <div>
       <ReminderCalendar onChange={onChange} value={value} />
     </div>
-  ])
+  ]);
+
+
+
+  const removeReminder = (idx) => {
+    if (idx >= 0 && idx < reminderCards.length) {
+      const updatedCards = [...reminderCards];
+      updatedCards.splice(idx, 1);
+      setReminderCards(updatedCards);
+    }
+  };
+
+  const cardReminderBody = (idx) => (
+    <div className='card-reminder'>
+      <div className='card-reminder-text'>
+        <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
+      </div>
+      <div className='card-reminder-button-container'>
+        <p>Remove Reminder</p>
+        <Button
+          label='Completed'
+          size={ButtonSizes.Small}
+          onClick={() => removeReminder(idx)}
+        />
+      </div>
+    </div>
+  );
+
+  const [reminderCards, setReminderCards] = useState([
+    {
+      title: todayDate,
+      body: cardReminderBody(0)
+    },
+    {
+      title: tomorrowDate,
+      body: cardReminderBody(1)
+    }
+  ]);
+
   return (
     <>
       <NavBar />
@@ -131,41 +150,43 @@ export default function Home() {
           <div className='home-welcome-header'>
             <h1>Welcome</h1>
             <h2>Start tracking your creatine intake and set reminders!</h2>
-          </div><div className='home-add-tub-container'>
+          </div>
+          <div className='home-add-tub-container'>
             <Button
               label='Add a new tub'
               size={ButtonSizes.Default}
-              onClick={() => history('/add-tub')} />
-          </div><div className='home-card-container'>
+              onClick={() => history('/add-tub')}
+            />
+          </div>
+          <div className='home-card-container'>
             <Card
               size='medium-card'
               header={wantToLearnMore}
               body={learnMoreBody}
-              footer={learnMoreDisclaimer} />
-          </div></> :
+              footer={learnMoreDisclaimer}
+            />
+          </div>
+        </>
+        :
         <>
           <div>
             <div className='current-user-welcome'>
               <h1>Welcome Back</h1>
-              <Carousel
-                items={carouselItems} />
+              <Carousel items={carouselItems} />
             </div>
           </div>
-
           <div className='card-containers-reminders'>
-            <Card
-              size='small-wide'
-              header={cardReminderTitle(todayDate)}
-              body={cardreminderBody}
-            />
-            <Card
-              size='small-wide'
-              header={cardReminderTitle(tomorrowDate)}
-              body={cardreminderBody}
-            />
+          {reminderCards.map((card, index) => (
+    <Card
+      key={index}
+      size='small-wide'
+      header={cardReminderTitle(card.title)}
+      body={card.body}
+    />
+  ))}
           </div>
         </>
       }
     </>
-  )
+  );
 }
