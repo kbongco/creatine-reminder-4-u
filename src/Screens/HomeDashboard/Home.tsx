@@ -67,7 +67,7 @@ export default function Home() {
     fetchTubs();
   }, [currentUserId])
 
-  const cardReminderTitle = (dateString) => (
+  const cardReminderTitle = (dateString:string) => (
     <div className='reminder-title'>
       <div className='reminder-settings-container'>
         <FontAwesomeIcon icon={faGear} />
@@ -120,7 +120,6 @@ export default function Home() {
       />
     </div>,
     <div>
-      {/* <h1>Testing second item</h1> */}
       <ReminderCalendar onChange={onChange} value={value} />
     </div>
   ])

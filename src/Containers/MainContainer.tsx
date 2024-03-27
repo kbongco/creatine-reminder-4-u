@@ -6,7 +6,6 @@ import Home from "../Screens/HomeDashboard/Home";
 import Settings from "../Screens/Settings/Settings";
 import { useEffect, useState } from "react";
 import { auth } from "../config/firebase";
-import Forgot from "../Screens/ForgotPassword/ForgotPassword";
 import AddATub from "../Screens/AddTub/AddTub";
 import LearnMore from "../Screens/LearnMore/LearnMore";
 import { useCurrentUser } from "../hooks/userCurrentUser";
