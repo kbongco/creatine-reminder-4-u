@@ -11,6 +11,13 @@ import DoughnutChart from "../../components/Chart/Doughnut";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "../../components/Carousel/Carousel";
+import ReminderCalendar from "../../components/Calendar/Calendar";
+// import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+
+type ValuePiece = Date | null;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
@@ -21,7 +28,7 @@ export default function Home() {
   };
   const today = new Date();
   const todayDate = getDate(today);
-
+  const [value, onChange] = useState<Value>(new Date());
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowDate = getDate(tomorrow);
@@ -60,7 +67,7 @@ export default function Home() {
     fetchTubs();
   }, [currentUserId])
 
-  const cardReminderTitle = (dateString) => (
+  const cardReminderTitle = (dateString:string) => (
     <div className='reminder-title'>
       <div className='reminder-settings-container'>
         <FontAwesomeIcon icon={faGear} />
@@ -106,14 +113,14 @@ export default function Home() {
 
   const carouselItems = ([
     <div className='current-user-navigation'>
-                              <DoughnutChart
-                                key="doughnut-chart" 
-                                data={data}
-                                options={options}
-                              />
+      <DoughnutChart
+        key="doughnut-chart"
+        data={data}
+        options={options}
+      />
     </div>,
     <div>
-      <h1>Testing second item</h1>
+      <ReminderCalendar onChange={onChange} value={value} />
     </div>
   ])
   return (
