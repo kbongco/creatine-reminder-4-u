@@ -4,6 +4,7 @@ export default interface ButtonProps {
   label?: string;
   size?: string;
   onClick?: any;
+  disabled?: boolean;
 }
 
 export default interface CardProps {

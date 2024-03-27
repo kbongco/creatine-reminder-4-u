@@ -41,6 +41,13 @@
     }
   }
 
+  &.disabled {
+    .button-styles {
+      background-color: rgba(242, 105, 55, 0.54);
+      color: #E1EAF2;
+    }
+  }
+
   .button-styles {
     background-color: #ff6b35;
     border-radius: 30px;

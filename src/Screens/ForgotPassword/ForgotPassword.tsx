@@ -4,7 +4,7 @@ import Input from "../../components/Input/Input";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../../components/Button/Button";
-import { ButtonSizes } from "../../enums/component-enums";
+import { ButtonSizes, InputSizes } from "../../enums/component-enums";
 import './ForgotPassword.scss';
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../config/firebase";
@@ -29,7 +29,7 @@ export default function Forgot() {
       <p>Forgot to take you creatine and your password? We got you covered!</p>
       <div className='forgot-password-input-container'>
       <Input
-            inputStyle="large-and-wide"
+            inputStyle={InputSizes.LargeWide}
             icon={<FontAwesomeIcon icon={faEnvelope} />}
             onChange={emailOnChange}
           />

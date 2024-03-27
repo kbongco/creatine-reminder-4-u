@@ -1,7 +1,7 @@
 import NavBar from "../../Layout/NavBar/NavBar";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
-import { ButtonSizes } from "../../enums/component-enums";
+import { ButtonSizes, CardSizes } from "../../enums/component-enums";
 import { useNavigate } from "react-router-dom";
 import './Home.scss';
 import { useCurrentUser } from "../../hooks/userCurrentUser";
@@ -12,20 +12,19 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "../../components/Carousel/Carousel";
 import ReminderCalendar from "../../components/Calendar/Calendar";
+import { data, options } from "../../constants/chart";
+import { getDate } from "../../utils/getDate";
 
 export default function Home() {
   const [tubs, setCurrentTubs] = useState([]);
   const tubsTest = ['test'];
-  const getDate = (date) => {
-    const options = { month: 'long', day: 'numeric', year: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
-  };
   const today = new Date();
   const todayDate = getDate(today);
   const [value, onChange] = useState(new Date());
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
   const tomorrowDate = getDate(tomorrow);
+  console.log(tomorrowDate === todayDate);
   const currentUserId = useCurrentUser();
   const wantToLearnMore = 'Want to learn More?';
   const history = useNavigate();
@@ -62,7 +61,7 @@ export default function Home() {
     fetchTubs();
   }, [currentUserId]);
 
-  const cardReminderTitle = (dateString) => (
+  const cardReminderTitle = (dateString:string) => (
     <div className='reminder-title'>
       <div className='reminder-settings-container'>
         <FontAwesomeIcon icon={faGear} />
@@ -70,27 +69,6 @@ export default function Home() {
       <p>{dateString}</p>
     </div>
   );
-
-
-  const data = {
-    labels: ['Creatine consumed', 'Creatine Remaining'],
-    datasets: [{
-      label: 'Creatine Remaining',
-      data: [10, 15],
-      backgroundColor: ['white', 'green'],
-      borderColor: ['white', 'green']
-    }]
-  };
-
-  const options = {
-    plugins: {
-      legend: {
-        labels: {
-          color: 'white',
-        }
-      }
-    }
-  };
 
   const carouselItems = ([
     <div className='current-user-navigation'>
@@ -107,7 +85,7 @@ export default function Home() {
 
 
 
-  const removeReminder = (idx) => {
+  const removeReminder = (idx:number) => {
     if (idx >= 0 && idx < reminderCards.length) {
       const updatedCards = [...reminderCards];
       updatedCards.splice(idx, 1);
@@ -115,7 +93,7 @@ export default function Home() {
     }
   };
 
-  const cardReminderBody = (idx) => (
+  const cardReminderBody = (idx:number) => (
     <div className='card-reminder'>
       <div className='card-reminder-text'>
         <p className='card-reminder-dosage-text'>5g of Creatine Monohydrate</p>
@@ -126,6 +104,7 @@ export default function Home() {
           label='Completed'
           size={ButtonSizes.Small}
           onClick={() => removeReminder(idx)}
+          disabled={todayDate === tomorrowDate}
         />
       </div>
     </div>
@@ -160,7 +139,7 @@ export default function Home() {
           </div>
           <div className='home-card-container'>
             <Card
-              size='medium-card'
+              size={CardSizes.Medium}
               header={wantToLearnMore}
               body={learnMoreBody}
               footer={learnMoreDisclaimer}
@@ -179,7 +158,7 @@ export default function Home() {
           {reminderCards.map((card, index) => (
     <Card
       key={index}
-      size='small-wide'
+      size={CardSizes.SmallWide}
       header={cardReminderTitle(card.title)}
       body={card.body}
     />
