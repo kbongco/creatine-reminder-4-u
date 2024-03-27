@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEventHandler, ReactNode } from "react";
 
 export default interface ButtonProps {
   label?: string;
@@ -7,7 +7,7 @@ export default interface ButtonProps {
 }
 
 export default interface CardProps {
-  header: string;
+  header: string | ReactNode;
   body: string | ReactNode;
   footer?: string | ReactNode;
   size?: string;
@@ -19,7 +19,7 @@ export default interface InputProps {
   type?: string;
   placeholder?: string;
   inputStyle?: string;
-  onChange?: any;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   name?: string;
   value: string | number;
 }
@@ -33,4 +33,13 @@ export default interface AccordionProps {
   content: ReactNode | string;
   isOpen: boolean;
   onClick?: () => void;
+}
+
+export default interface DoughtChartProps {
+  data: string[];
+  options: string[];
+}
+
+export default interface CarouselProps {
+  items: ReactNode[];
 }

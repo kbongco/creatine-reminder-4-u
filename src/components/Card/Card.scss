@@ -42,6 +42,16 @@
 
       .card-header {
         font-size: 1rem;
+        display: flex;
+        justify-content: end;
+        height: 25%;
+        padding: 0 16px;
+      }
+
+      .card-content {
+        height: 25%;
+        height: 55%;
+        margin-top: 8px;
       }
     }
   }
@@ -86,8 +96,8 @@
     height: 621px;
     width: 385px;
     background-color: #d9d9d9;
-    
-    .card-header{
+
+    .card-header {
       text-align: center;
       height: 80px;
     }

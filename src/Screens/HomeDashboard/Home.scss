@@ -42,3 +42,69 @@
     }
   }
 }
+
+.current-user-welcome {
+  color: white;
+
+  .current-user-doughnut-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 239px;
+    width: 237px;
+  }
+
+  .current-user-navigation {
+    display: flex;
+    justify-content: space-around;
+
+    .current-user-left-arrow,
+    .current-user-right-arrow {
+      display: flex;
+      align-items: center;
+      color: white;
+
+      svg {
+        height: 50px;
+      }
+    }
+  }
+}
+
+.card-containers-reminders {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .reminder-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .reminder-settings-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .card-reminder {
+    .card-reminder-text {
+      text-align: right;
+      padding: 0 16px;
+
+      .card-reminder-dosage-text {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .card-reminder-button-container {
+      display: flex;
+      justify-content: end;
+      gap: 16px;
+      padding-right: 16px;
+    }
+  }
+}
